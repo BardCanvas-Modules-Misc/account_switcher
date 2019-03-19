@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Cambiador de cuentas</display_name>
+    <icon>fa-exchange</icon>
+    <description>
+        Permite el cambio rápido entre varias cuentas de usuario.
+    </description>
+
+    <dialog_title>Añadir cuenta para cambio rápido</dialog_title>
+    <dialog_info><![CDATA[
+        Introduce las credenciales para añadir la cuenta al selector de cambio rápido.<br>
+        <b>Nota:</b> las sesiones se almacenan en cookies de tu navegador actual.
+    ]]></dialog_info>
+    <switch_account>Cambiar cuenta...</switch_account>
+    <switch_to>Cambiar a {$display_name}</switch_to>
+    <add_account>Agregar cuenta</add_account>
+    <user_name>Nombre de usuario:</user_name>
+    <password>Contraseña:</password>
+    
+    <messages>
+        <collection_reset><![CDATA[
+            No se ha podido desencriptar la cookie de sesiones guardadas - puede estar corrupta.
+            Tu colección de sesiones se ha reiniciado. Necesitarás re-agregar las que faltasen.
+            <span class="alternate">Por favor recarga la página para actualizar la lista de sessiones.</span>
+        ]]></collection_reset>
+        <collection_empty>Lo sentimpos, pero la colección de sesiones está vacía. La cookie debió haberse eliminado.</collection_empty>
+        <account_not_found>La cuenta a la que quieres cambiarte no se ha encontrado en la colección de sesiones autorizadas.</account_not_found>
+        <no_self_account>Favor de especificar las credenciales de una cuenta distinta a la actual.</no_self_account>
+        <already_in>La cuenta que has especificado ya existe en la colección de sesiones.</already_in>
+        <invalid_token>Disculpa, pero el token de sesión es inválido. Por favor intenta de nuevo.</invalid_token>
+        <account_removal_prompt>Por favor confirma que deseas remover esta cuenta del cambio rápido de este navegador.</account_removal_prompt>
+        <invalid_account_id>Identificador de cuenta inválido</invalid_account_id>
+        <cannot_remove_self>No puedes remover la cuenta de tu sesión actual</cannot_remove_self>
+        <account_successfully_removed>Cuenta removida con éxito.</account_successfully_removed>
+        <problem_initializing>Problema inicializando la sesión nueva</problem_initializing>
+        <browser_not_handled_properly>Parece que tu navegador no pudo manejar adecuadamente la solicitud de cambio.</browser_not_handled_properly>
+        <click_here_to_retry>Por favor da click aquí para reitentar.</click_here_to_retry>
+        <click_to_try_again><![CDATA[
+            Si el problema persiste, <a href="%s">da click aquí</a> e intenta el cambio nuevamente.
+        ]]></click_to_try_again>
+    </messages>
+    
+    <settings_data>
+        <title>Cambiador de cuentas</title>
+        
+        <specs key="required_level">
+            <title>Nivel de acceso requerido</title>
+            <description><![CDATA[
+                Nivel que los usuarios requieren tener para poder acceder a esta característica.<br>
+                Valor predeterminado: <code>240</code> (Coadmin)
+            ]]></description>
+            <type>user_level_selector</type>
+        </specs>
+    </settings_data>
+    
+</language>

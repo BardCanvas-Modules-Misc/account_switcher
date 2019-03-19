@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <display_name>Fast account Switcher</display_name>
+    <icon>fa-exchange</icon>
+    <description>
+        Allows fast switching for multiple user accounts.
+    </description>
+    
+    <dialog_title>Add account to fast switching</dialog_title>
+    <dialog_info><![CDATA[
+        Input the credentials of another account to add it to the fast switching selector.<br>
+        <b>Note:</b> sessions are stored in cookies of your actual browser.
+    ]]></dialog_info>
+    <switch_account>Switch account...</switch_account>
+    <switch_to>Switch to {$display_name}</switch_to>
+    <add_account>Add account to switch</add_account>
+    <user_name>User name:</user_name>
+    <password>Password:</password>
+    
+    <messages>
+        <collection_reset><![CDATA[
+            Couldn't decrypt the saved sessions cookie - it might be corrupt.
+            Your sessions collection has been reset. You'll need to re-add any missing ones.
+            <span class="alternate">Please reload the page to update the switching accounts list.</span>
+        ]]></collection_reset>
+        <collection_empty>Sorry, but the sessions collection is empty. The cookie may have been removed.</collection_empty>
+        <account_not_found>The account you're switching to wasn't found in the authorized collection.</account_not_found>
+        <no_self_account>Please specify the credentials for an account other than the one you're logged in with.</no_self_account>
+        <already_in>The account you specified is already in the sessions collection.</already_in>
+        <invalid_token>Sorry, but the provided account switching token is invalid. Please try again.</invalid_token>
+        <account_removal_prompt>Please confirm that you want to remove this account from the switcher on this browser.</account_removal_prompt>
+        <invalid_account_id>Invalid account id provided</invalid_account_id>
+        <cannot_remove_self>You cannot remove the account of your current session</cannot_remove_self>
+        <account_successfully_removed>Account successfully removed.</account_successfully_removed>
+        <problem_initializing>Problem initializing switched session</problem_initializing>
+        <browser_not_handled_properly>Seems that your browser didn't handle the cookie switching request properly.</browser_not_handled_properly>
+        <click_here_to_retry>Please click here to retry.</click_here_to_retry>
+        <click_to_try_again><![CDATA[
+            If the problem persists, <a href="%s">click here</a> and switch again.
+        ]]></click_to_try_again>
+    </messages>
+    
+    <settings_data>
+        <title>Fast account Switcher</title>
+        
+        <specs key="required_level">
+            <title>Required access level</title>
+            <description><![CDATA[
+                Required level to access this feature.<br>
+                Default: <code>240</code> (Coadmin)
+            ]]></description>
+            <type>user_level_selector</type>
+        </specs>
+    </settings_data>
+    
+</language>

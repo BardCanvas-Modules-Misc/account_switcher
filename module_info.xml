@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    
+    <version>1.0.0</version>
+    <group>modules_misc</group>
+    <admin_only>false</admin_only>
+    
+    <working_flags>
+        <install>true</install>
+        <uninstall>true</uninstall>
+        <enable>true</enable>
+        <disable>true</disable>
+    </working_flags>
+    
+    <php_includes>
+        <before_loading_session>extenders/session_switcher.inc</before_loading_session>
+        <after_loading_session>extenders/after_loading_session.inc</after_loading_session>
+    </php_includes>
+    
+    <template_includes>
+        <post_footer>post_footer_scripts.inc</post_footer>
+    </template_includes>
+    
+    <extends_to>
+        <accounts>
+            <user_menu>
+                <extra_commands>extenders/user_menu_commands.inc</extra_commands>
+            </user_menu>
+        </accounts>
+    </extends_to>
+    
+</module>
