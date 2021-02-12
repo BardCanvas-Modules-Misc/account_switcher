@@ -71,7 +71,7 @@ setcookie( "_" . $config->website_key . "_DIC"         , "", 0, "/", $config->co
 # Set new session cookie (it will be opened afterwards)
 $cookie_key   = $settings->get("engine.user_session_cookie");
 $cookie_val   = encrypt( $to_id_account, $config->encryption_key );
-$session_time = time() + (86400*7);
+$session_time = time() + (86400 * 30);
 setcookie( $cookie_key, $cookie_val, $session_time, "/", $config->cookies_domain );
 
 # Reload
