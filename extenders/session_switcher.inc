@@ -9,6 +9,8 @@
  * @var module $module
  */
 
+use hng2_base\account;
+use hng2_base\device;
 use hng2_base\module;
 
 if( empty($_GET["switch_to"]) ) return;
@@ -73,6 +75,30 @@ $cookie_key   = $settings->get("engine.user_session_cookie");
 $cookie_val   = encrypt( $to_id_account, $config->encryption_key );
 $session_time = time() + (86400 * 30);
 setcookie( $cookie_key, $cookie_val, $session_time, "/", $config->cookies_domain );
+
+# Register the login in this device
+$to_account = new account($to_id_account);
+$device     = new device($to_id_account, $_SERVER["HTTP_USER_AGENT"]);
+if( ! $device->_exists )
+{
+    $device->set_new($to_account);
+    $device->state = "enabled";
+    $device->save();
+}
+$config->globals["@accounts:account_id_logging_in"] = $to_id_account;
+$modules["accounts"]->load_extensions("login", "before_inserting_login_record");
+$ip       = get_user_ip();
+$host     = @gethostbyaddr($ip); if(empty($host)) $host = $ip;
+$location = forge_geoip_location($ip);
+$database->exec("
+    insert ignore into account_logins set
+    `id_account` = '$to_id_account',
+    `id_device`  = '$device->id_device',
+    `login_date` = '".date("Y-m-d H:i:s")."',
+    `ip`         = '$ip',
+    `hostname`   = '$host',
+    `location`   = '$location'
+");
 
 # Reload
 $uri = parse_url($_SERVER["REQUEST_URI"]);
