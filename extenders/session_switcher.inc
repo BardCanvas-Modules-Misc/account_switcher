@@ -78,7 +78,7 @@ setcookie( $cookie_key, $cookie_val, $session_time, "/", $config->cookies_domain
 
 # Register the login in this device
 $to_account = new account($to_id_account);
-$device     = new device($to_id_account, $_SERVER["HTTP_USER_AGENT"]);
+$device     = new device($to_id_account, get_sanitized_user_agent());
 if( ! $device->_exists )
 {
     $device->set_new($to_account);
