@@ -1,6 +1,10 @@
 
 # Account Switcher Module Change Log
 
+## [1.1.3] - 2021-09-24
+
+- Added sanitization of user agents for device strings.
+
 ## [1.1.2] - 2021-08-29
 
 - Added support for device pinging and accounts extension point.
