@@ -12,6 +12,8 @@
 
 include "../../config.php";
 include "../../includes/bootstrap.inc";
+if( ! $modules["account_switcher"] ) throw_fake_501();
+if( ! $modules["account_switcher"]->enabled ) throw_fake_501();
 
 header("Content-Type: text/html; charset=utf-8");
 
