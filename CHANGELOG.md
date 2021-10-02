@@ -1,6 +1,10 @@
 
 # Account Switcher Module Change Log
 
+## [1.1.4] - 2021-10-02
+
+- Added module availability validation to scripts.
+
 ## [1.1.3] - 2021-09-24
 
 - Added sanitization of user agents for device strings.
