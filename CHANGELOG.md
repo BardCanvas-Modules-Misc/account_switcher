@@ -1,6 +1,10 @@
 
 # Account Switcher Module Change Log
 
+## [1.1.5] - 2022-03-16
+
+- Refactored IP Geolocation functions.
+
 ## [1.1.4] - 2021-10-02
 
 - Added module availability validation to scripts.
