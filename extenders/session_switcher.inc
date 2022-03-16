@@ -89,7 +89,7 @@ $config->globals["@accounts:account_id_logging_in"] = $to_id_account;
 $modules["accounts"]->load_extensions("login", "before_inserting_login_record");
 $ip       = get_user_ip();
 $host     = @gethostbyaddr($ip); if(empty($host)) $host = $ip;
-$location = forge_geoip_location($ip);
+$location = addslashes(get_geoip_location_with_isp($ip));
 $database->exec("
     insert ignore into account_logins set
     `id_account` = '$to_id_account',
